@@ -1,0 +1,73 @@
+<%= render "shared/error", obj:@room %>
+
+
+<div id="user_setting_container">
+  <div class="sidebar">
+    <ul>
+      <li>
+        <%= link_to "基本情報", "/rooms/new" %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div class="user_setting_form">
+      <h3 class="user_title">
+        ルーム情報登録
+      </h3>
+      <div class="user_setting_form_inner">
+        <%= form_with model:@room do |f| %>
+            <div class="user_setting_form_row">
+              <div class="user_setting_title_area">
+                <div class="user_setting_title">ルーム名</div>
+                <div class="mandatory">必須</div>
+              </div>
+              <div class="user_setting_input_area">
+                <%= f.text_field :name, placeholder: "ルーム名を入力" %>
+              </div>
+            </div>
+            <div class="user_setting_form_row">
+              <div class="user_setting_title_area">
+                <div class="user_setting_title">ルーム紹介</div>
+                <div class="mandatory">必須</div>
+              </div>
+              <div class="user_setting_input_area">
+                <%= f.text_area :introduction, placeholder:"ルーム説明を入力" %>
+              </div>
+            </div>
+            <div class="user_setting_form_row">
+              <div class="user_setting_title_area">
+                <div class="user_setting_title">料金</div>
+                <div class="mandatory">必須</div>
+              </div>
+              <div class="user_setting_input_area">
+                <%= f.text_field :fee, placeholder:"一日あたりの料金を入力" %>
+              </div>
+            </div>
+            <div class="user_setting_form_row">
+              <div class="user_setting_title_area">
+                <div class="user_setting_title">住所</div>
+                <div class="mandatory">必須</div>
+              </div>
+              <div class="user_setting_input_area">
+                <%= f.text_field :address, placeholder:"住所を入力" %>
+              </div>
+            </div>
+            <div class="user_setting_form_row">
+              <div class="user_setting_title_area">
+                <div class="user_setting_title">ルーム画像</div>
+                <div class="mandatory">必須</div>
+              </div>
+              <div class="user_setting_input_area">
+                <%= f.file_field :image, placeholder:"選択されていません" %>
+              </div>
+            </div>
+            <%= f.hidden_field :user_id, value:@current_user.id %>
+            <div class="user_setting_form_row">
+              <%= f.submit "登録", class:"button", id:"user_setting_form_button"%>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

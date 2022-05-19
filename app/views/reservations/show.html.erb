@@ -1,0 +1,41 @@
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="user_setting_form">
+  <h3 class="user_title">予約内容</h3>
+  <div class="user_setting_form_inner">
+    <div class="user_setting_form_row">
+      <div class="user_setting_title_area">
+        <div class="user_setting_title">予約した部屋</div>
+      </div>
+      <div class="user_setting_input_area">
+        <%= @room.name %>
+      </div>
+    </div>
+    <div class="user_setting_form_row">
+      <div class="user_setting_title_area">
+        <div class="user_setting_title">開始日</div>
+      </div>
+      <div class="user_setting_input_area">
+        <%= @reservation.begin %>
+      </div>
+    </div>
+    <div class="user_setting_form_row">
+      <div class="user_setting_title_area">
+        <div class="user_setting_title">終了日</div>
+      </div>
+      <div class="user_setting_input_area">
+        <%= @reservation.finish %>
+      </div>
+    </div>
+    <div class="user_setting_form_row">
+      <div class="user_setting_title_area">
+        <div class="user_setting_title">価格</div>
+      </div>
+      <div class="user_setting_input_area">
+        <%= @reservation.total_fee %>円
+      </div>
+    </div>
+  </div>
+</div>

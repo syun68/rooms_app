@@ -1,0 +1,25 @@
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="container" style="display:flex; justify-content:center;">
+  <div class="user_form_container">
+    <h2 class="form_title">ログイン</h2>
+    <div class="form_inner">
+      <%= form_with url:login_path do |f| %>
+        <div class="input_form" id="email_form">
+          <div class="mandatory">必須</div>
+          <%= f.email_field :email ,placeholder:"メールアドレス" %>
+        </div>
+        <div class="input_form" id="password_form">
+          <div class="mandatory">必須</div>
+          <%= f.password_field :password ,placeholder:"パスワード" %>
+        </div>
+          <%= f.submit "ログイン", class:"button", id:"submit_login" %>
+      <% end %>
+      <div class="form_link">
+        <%= link_to "新しいアカウントを作成", "/users/new" %>
+      </div>
+    </div>
+  </div>
+</div>

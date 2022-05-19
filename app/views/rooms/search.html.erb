@@ -1,0 +1,16 @@
+<h3>検索結果：<%= @rooms.count %>件</h3>
+
+<div class="room_container">
+  <div class="room_row">
+    <% @rooms.each do |room| %>
+      <div class="room_link_inner">
+        <%= link_to "/rooms/#{room.id}" ,:class => "room_link" do %>
+          <%= image_tag room.image.url,  :alt => "ルーム画像", :class => "room_link_image" %>
+          <div class="room_link_name"><%= room.name %></div>
+          <div class="room_link_address"><%= room.address %></div>
+          <div class="room_link_fee"><%= room.fee %>円</div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="container">
+
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+
+  <div class="modal_container">
+    <div class="modal_form">
+      <h4>ROOM SHAREでまだ体験したことのない旅をしよう</h4>
+        <div　class="form_inner">
+          <form action="/rooms/search" method="get">
+            <label for="address">エリア</label>
+            <input type="text" name="address" placeholder="東京">
+            <input type="submit" value="探す" %>
+          </form>
+        </div>
+    </div>
+  </div>
+
+  <div class="recommend">
+    <h3>おすすめのエリア</h3>
+    <div class="recommend_area_row">
+      <div class="recommend_area_inner">
+        <a href="http://127.0.0.1:3000/rooms/search?address=%E6%9D%B1%E4%BA%AC&keyword=">
+          <%= image_tag "/assets/tokyo.jpeg", :alt => "東京", :class => "recommend_image" %>
+          <div class="recommend_area_title">東京</div>
+        </a>
+      </div>
+      <div class="recommend_area_inner">
+        <a href="http://127.0.0.1:3000/rooms/search?address=%E4%BA%AC%E9%83%BD&keyword=">
+          <%= image_tag "/assets/kyoto.jpeg", :alt => "京都", :class => "recommend_image" %>
+          <div class="recommend_area_title">京都</div>
+        </a>
+      </div>
+      <div class="recommend_area_inner">
+        <a href="http://127.0.0.1:3000/rooms/search?address=%E6%9C%AD%E5%B9%8C&keyword=">
+          <%= image_tag "/assets/sapporo.jpeg", :alt => "札幌", :class => "recommend_image" %>
+          <div class="recommend_area_title">札幌</div>
+        </a>
+      </div>
+      <div class="recommend_area_inner">
+        <a href="http://127.0.0.1:3000/rooms/search?address=%E6%B2%96%E7%B8%84&keyword=">
+          <%= image_tag "/assets/okinawa.jpeg", :alt => "沖縄", :class => "recommend_image" %>
+          <div class="recommend_area_title">沖縄</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
