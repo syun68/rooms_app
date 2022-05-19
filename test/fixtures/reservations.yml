@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  begin: 2022-05-08 19:25:20
+  finish: 2022-05-08 19:25:20
+  number_of_guests: 1
+  fee: 1
+  user_id: 1
+  room_id: 1
+
+two:
+  begin: 2022-05-08 19:25:20
+  finish: 2022-05-08 19:25:20
+  number_of_guests: 1
+  fee: 1
+  user_id: 1
+  room_id: 1

@@ -1,0 +1,34 @@
+<% if flash[:notice] %>
+  <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<div class="room_show_container">
+  <div class="room_show_display_area">
+    <%= image_tag @room.image.url, :alt => "ルーム画像", :class => "room_image" %>
+    <div class="room_show_of_user">
+      <% if @user.image? %>
+          <%= image_tag @user.image.url, :alt => "アイコン画像", :class => "user_icon", :size => "100x100" %>
+      <% else %>
+        <%= image_tag "/assets/default_user.jpg", :alt => "アイコン画像", :class => "user_icon", :size => "100x100" %>
+      <% end %>
+      <div class="room_show_of_room_title">
+        <div class="room_name"><%= @room.name %></div>
+        <div class="room_address"><%= @room.address %></div>
+      </div>
+    </div>
+    <div class="room_introduction"><%= @room.introduction %></div>
+  </div>
+  <div class="room_show_input_area">
+    <div style="font-size: 30px">￥<%= @room.fee %> / 日</div>
+    <%= form_with url: "/reservations/new", method: :get do |f| %>
+      <%= f.label :開始日 %>
+      <%= f.date_field :begin, class: "input_form" %>
+      <%= f.label :終了日 %>
+      <%= f.date_field :finish, class: "input_form" %>
+      <span class="room_date_show">人数</span>
+      <%= f.number_field :number_of_guests, class: "input_form"  %>
+      <%= f.hidden_field :room_id, :value => @room.id %>
+      <%= f.submit "予約する", :id => "submit_login" %>
+    <% end %>
+  </div>
+</div
